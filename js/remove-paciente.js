@@ -1,16 +1,19 @@
-// let pacientes = document.querySelectorAll(".paciente");
-
 // pacientes.forEach((paciente) => {
-//     paciente.addEventListener("dblclick", function(){
+
+//     paciente.addEventListener("dblclick", function() {
 //         this.remove();
 //     });
+
 // });
 
-document.querySelector("#tabela-pacientes").addEventListener("dblclick", function (event) {
-    event.target.parentNode.classList.add("fadeOut");
+// let tabela = document.querySelector("#tabela-pacientes")
 
+// tabela.addEventListener()
+
+document.querySelector("#tabela-pacientes").addEventListener("dblclick", function (event) {
+    event.target.parentNode.classList.add("fadeOut")
     setTimeout(() => {
         event.target.parentNode.remove();
-    }, 500);
-    // event.target.parentNode.remove();
-});
+    }, 500)
+
+})

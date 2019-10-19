@@ -70,10 +70,6 @@ th{
 	background-color: #EEE;
 }
 
-.paciente-invalido {
-    background-color: lightcoral;
-}
-
 label{
 	color: #555;
 	display: block;
@@ -137,25 +133,26 @@ button[disabled=disabled], button:disabled {
 	border: 1px solid red;
 }
 
-/* Classe para erro na validação do formulario */
-#mensagens-erro {
-    color: red;
+.paciente-invalido{
+	background-color: lightcoral;
 }
 
-/* Classe para animação da remoção do paciente. */
+#mensagens-erro{
+	color: red;
+	font-weight: bold;
+}
+
 .fadeOut {
     opacity: 0;
     transition: 0.5s;
 }
 
-/* Estilo do filtro */
-#filtrar-tabela {
-    width: 200px;
-    height: 35px;
-    margin-bottom: 10px;
+#filtar-tabela{
+	width: 200px;
+	height: 35px;
+	margin-bottom: 10px; 
 }
 
-/* Esconde paciente não filtrado */
 .invisivel{
-    display: none;
+	display: none;
 }

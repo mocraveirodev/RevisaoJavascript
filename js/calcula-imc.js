@@ -1,50 +1,45 @@
-document.querySelector(".titulo").textContent = "Aparecida Nutricionista";
+document.querySelector("#titulo").textContent = "Aparecida Nutricionista"
 
+let paciente = document.querySelector("#primeiro-paciente");
 const pacientes = document.querySelectorAll(".paciente");
 
-// calculaImc = (peso,altura) => {
-//     return peso / (altura * altura).toFixed(2);
-// }
-
-validaPeso = (peso) => {
-
-    if (peso >= 0 && peso <= 300) {
-        return true;
-    } else {
-        return false;
+let validaPeso = (peso) => {
+    if (peso <= 0 || peso > 1000) {
+        return false
+    }else{
+        return true
     }
 }
 
-validaAltura = (altura) => {
-
-    if (altura >= 0 && altura <= 3.0) {
-        return true;
-    } else {
-        return false;
+let validaAltura = (altura) => {
+    if (altura <= 0 || altura >= 3) {
+        return false
+    }else{
+        return true
     }
 }
 
-calculaImc = (peso, altura) => {
-    let imc = peso / (altura * altura);
-    return imc.toFixed(2);
+let calculaImc = (peso,altura) => {
+    // let imc = peso / (altura * altura);
+    return Math.round(peso / (altura * altura));
 }
 
 for (let i = 0; i < pacientes.length; i++) {
-
     let paciente = pacientes[i];
 
+    // let tdPeso = paciente.querySelector(".info-peso");
+    let peso = paciente.querySelector(".info-peso").textContent;
+
     let tdAltura = paciente.querySelector(".info-altura");
-    let tdPeso = paciente.querySelector(".info-peso");
-    let tdImc = paciente.querySelector(".info-imc");
-
-
     let altura = tdAltura.textContent;
-    let peso = tdPeso.textContent;
 
-    //Comentando pois agora vamos usar a função para validar
+    // let imc = peso / (altura * altura);
 
-    // let alturaEhValida = true;
-    // let pesoEhValido = true;  
+    let tdImc = paciente.querySelector(".info-imc");
+    // tdImc.textContent = imc;
+
+    let alturaEhValida = validaAltura(altura);
+    let pesoEhValido = validaPeso(peso);
 
     // if (peso <= 0 || peso > 1000) {
     //     pesoEhValido = false;
@@ -52,19 +47,26 @@ for (let i = 0; i < pacientes.length; i++) {
 
     // if (altura <= 0 || altura >= 3) {
     //     alturaEhValida = false;
-    // }  
-    let alturaEhValida = validaAltura(altura);
-    let pesoEhValido = validaPeso(peso);
+    // }
 
-    if (!pesoEhValido) {
-        pesoEhValido = false;
-        tdImc.textContent = "Peso inválido!";
-        paciente.classList.add("paciente-invalido");
+    if(!alturaEhValida){
+        tdAltura.textContent = "Altura inválida!"
+        tdAltura.classList.add("paciente-invalido")
     }
 
-    if (!alturaEhValida) {
-        alturaEhValida = false;
-        tdImc.textContent = "Altura inválida!";
-        paciente.classList.add("paciente-invalido");
+    if(!pesoEhValido){
+        tdPeso.textContent = "Peso inválido!"
+        tdPeso.classList.add("paciente-invalido")
     }
+
+    if (alturaEhValida && pesoEhValido) {
+        // tdImc.textContent = imc.toFixed(2);
+        // tdImc.textContent = Math.round(imc);
+        tdImc.textContent = calculaImc(peso,altura);
+    } else {
+        tdImc.textContent = "Altura e/ou peso inválidos!"
+        // paciente.style.backgroundColor = "lightcoral"
+        paciente.classList.add("paciente-invalido")
+    }
+
 }

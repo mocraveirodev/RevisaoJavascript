@@ -7,21 +7,20 @@
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
-
 </head>
 
 <body>
 
 	<header>
 		<div class="container">
-			<h1 class="titulo">Aparecida Nutrição</h1>
+			<h1 id="titulo">Aparecida Nutrição</h1>
 		</div>
 	</header>
 	<main>
 		<section class="container">
 			<h2>Meus pacientes</h2>
-			<label for="filtrar-tabela">Filtre:</label>
-			<input type="text" name="filtro" id="filtrar-tabela" placeholder="Digite o nome do paciente">
+			<label for="filtar-tabela">Filtre:</label>
+			<input type="text" id="filtar-tabela" name="filtro" placeholder="Digite o nome do paciente:">
 			<table>
 				<thead>
 					<tr>
@@ -33,10 +32,10 @@
 					</tr>
 				</thead>
 				<tbody id="tabela-pacientes">
-					<tr class="paciente" id="primeiro-paciente">
+					<!-- <tr class="paciente" id="primeiro-paciente">
 						<td class="info-nome">Paulo</td>
 						<td class="info-peso">100</td>
-						<td class="info-altura">2.00</td>
+						<td class="info-altura">4.00</td>
 						<td class="info-gordura">10</td>
 						<td class="info-imc">0</td>
 					</tr>
@@ -70,18 +69,16 @@
 						<td class="info-altura">1.55</td>
 						<td class="info-gordura">19</td>
 						<td class="info-imc">0</td>
-					</tr>
+					</tr> -->
 				</tbody>
 			</table>
-
-			<button id="buscar-pacientes" class="botao bto-principal">Buscar Pacientes</button>
 
 		</section>
 	</main>
 
 	<section class="container">
 		<h2 id="titulo-form">Adicionar novo paciente</h2>
-		<ul id="mensagens-erro"></ul> <!-- Adicionando para mostrar mensagem de erro -->
+		<ul id="mensagens-erro"></ul>
 		<form id="form-adiciona">
 			<div class="grupo">
 				<label for="nome">Nome:</label>
@@ -107,14 +104,12 @@
 		</form>
 	</section>
 
-	<script src="js/calcula-imc.js"></script>
-	<script src="js/adiciona-paciente.js"></script>
-	<script src="js/remove-paciente.js"></script>
-	<script src="js/filtra.js"></script>
-	<script src="js/data.js"></script>
-	<script src="js/popula-tabela.js"></script>
-	<script src="js/exemplos-for.js"></script>
-
+	<script src="./js/calcula-imc.js"></script>
+	<script src="./js/adiciona-paciente.js"></script>
+	<script src="./js/remove-paciente.js"></script>
+	<script src="./js/filtra.js"></script>
+	<script src="./js/data.js"></script>
+	<script src="./js/popula-tabela.js"></script>
 </body>
 
 </html>
